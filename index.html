@@ -79,6 +79,9 @@ Your browser does not support the audio element.
     v.addEventListener("play", function() {
         gtag('event', 'action', {'event_label':'play.'+v.id, 'event_category':'playback.'+v.id})
     }, true);
+    v.addEventListener("playing", function() {
+        gtag('event', 'action', {'event_label':'playing.'+v.id, 'event_category':'playback.'+v.id})
+    }, true);
     v.addEventListener("pause", function() {
         gtag('event', 'action', {'event_label':'pause.'+v.id, 'event_category':'playback.'+v.id})
     }, true);
