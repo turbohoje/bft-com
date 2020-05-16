@@ -15,7 +15,7 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-42536493-5');
-
+  //
 </script>
 
 
@@ -57,7 +57,7 @@
 	
 	Episode 1 : 2020-05-15<br><br>
 <audio controls id="ep1">
-  <source src="/mp3/200515_0003S34.mp3" type="audio/mpeg">
+  <source src="mp3/200515_0003S34.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
      
@@ -72,4 +72,28 @@ Your browser does not support the audio element.
   </section>
 
 </body>
+
+<script>
+
+    var v = document.getElementById("ep1")
+    v.addEventListener("play", function() {
+        gtag('event', 'action', {'event_label':'play.'+v.id, 'event_category':'playback'})
+    }, true);
+    v.addEventListener("pause", function() {
+        gtag('event', 'action', {'event_label':'pause.'+v.id, 'event_category':'playback'})
+    }, true);
+    v.addEventListener("ended", function() {
+        gtag('event', 'action', {'event_label':'ended.'+v.id, 'event_category':'playback'})
+    }, true);
+    v.addEventListener("seeked", function() {
+        gtag('event', 'action', {'event_label':'seeked.'+v.id, 'event_category':'playback'})
+    }, true);
+    v.addEventListener("stalled", function() {
+        gtag('event', 'action', {'event_label':'stalled.'+v.id, 'event_category':'playback'})
+    }, true);
+    v.addEventListener("volumechanged", function() {
+        gtag('event', 'action', {'event_label':'volume.'+v.id, 'event_category':'playback'})
+    }, true);
+</script>
+
 </html>
