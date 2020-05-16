@@ -94,6 +94,9 @@ Your browser does not support the audio element.
     v.addEventListener("volumechanged", function() {
         gtag('event', 'action', {'event_label':'volume.'+v.id, 'event_category':'playback.'+v.id})
     }, true);
+    v.addEventListener("emptied", function() {
+        gtag('event', 'action', {'event_label':'emptied.'+v.id, 'event_category':'playback.'+v.id})
+    }, true);
 </script>
 
 </html>
