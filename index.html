@@ -85,14 +85,14 @@
 
     for (var i = 0; i < events.length; i++) {
         v.addEventListener(events[i], function () {
-            gtag('event', 'action', {'event_label': s + '.' + v.id, 'event_category': 'playback.' + v.id})
+            gtag('event', 'action', {'event_label': events[i] + '.' + v.id, 'event_category': 'playback.' + v.id})
         }, true);
     }
 
     var v = document.getElementById("ep2");
     for (var i = 0; i < events.length; i++) {
         v.addEventListener(events[i], function () {
-            gtag('event', 'action', {'event_label': s + '.' + v.id, 'event_category': 'playback.' + v.id})
+            gtag('event', 'action', {'event_label': events[i] + '.' + v.id, 'event_category': 'playback.' + v.id})
         }, true);
     }
 
