@@ -84,14 +84,14 @@
     var v = document.getElementById("ep1")
 
     for (var i = 0; i < events.length; i++) {
-        v.addEventListener(s, function () {
+        v.addEventListener(events[i], function () {
             gtag('event', 'action', {'event_label': s + '.' + v.id, 'event_category': 'playback.' + v.id})
         }, true);
     }
 
     var v = document.getElementById("ep2");
     for (var i = 0; i < events.length; i++) {
-        v.addEventListener(s, function () {
+        v.addEventListener(events[i], function () {
             gtag('event', 'action', {'event_label': s + '.' + v.id, 'event_category': 'playback.' + v.id})
         }, true);
     }
