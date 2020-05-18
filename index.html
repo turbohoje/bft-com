@@ -82,7 +82,7 @@
     var eps = ["ep1", "ep2"]
 
     var eventFunc = function(id, event){
-        gtag('event', 'action', {'event_label': estr, 'event_category': 'playback.' + v.id})
+        gtag('event', 'action', {'event_label': event, 'event_category': 'playback.' + id})
     };
 
     for (var j = 0; j < eps.length; j++) {
