@@ -81,15 +81,16 @@
     var events = ["play", "playing", "pause", "ended", "seeked", "stalled", "volumechanged", "emptied"];
     var eps = ["ep1", "ep2"]
 
+    var eventFunc = function(id, event){
+        console.warn({"id":id, "event":event})
+        //gtag('event', 'action', {'event_label': estr, 'event_category': 'playback.' + v.id})
+    };
+
     for (var j = 0; j < eps.length; j++) {
         v = document.getElementById(eps[j]);
 
         for (var i = 0; i < events.length; i++) {
-            var estr = events[i] + '.' + v.id
-            v.addEventListener(events[i], function () {
-                console.warn(estr)
-                gtag('event', 'action', {'event_label': estr, 'event_category': 'playback.' + v.id})
-            }, true);
+            v.addEventListener(events[i], eventFunc.bind(this, v.id, events[i] + '.' + v.id), true);
         }
     }
 </script>
