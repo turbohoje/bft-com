@@ -29,7 +29,7 @@ body, html {
 
 .pimg2 {
   background-image: url('../img/image2.jpg');
-  min-height: 400px;
+  min-height: 200px;
 }
 
 .pimg3 {
@@ -63,18 +63,28 @@ body, html {
   text-transform: uppercase;
 }
 
+.etext {
+  position: absolute;
+  width: 100%;
+  top:20px;
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+
 .ptext .border {
   background-color: #111;
   opacity: 0.90;
   color: #fff;
   padding: 20px;
-    line-height: 80px;
+  line-height: 80px;
 }
 
 .ptext .border.trans {
   background: transparent;
-
-    padding-bottom:300px;
+  padding-bottom:300px;
 }
 
 .ep {
