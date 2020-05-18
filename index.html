@@ -82,8 +82,7 @@
     var eps = ["ep1", "ep2"]
 
     var eventFunc = function(id, event){
-        console.warn({"id":id, "event":event})
-        //gtag('event', 'action', {'event_label': estr, 'event_category': 'playback.' + v.id})
+        gtag('event', 'action', {'event_label': estr, 'event_category': 'playback.' + v.id})
     };
 
     for (var j = 0; j < eps.length; j++) {
