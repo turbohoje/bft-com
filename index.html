@@ -77,27 +77,20 @@
 
 </body>
 
-<script>
+<script language="javascript">
+    var events = ["play", "playing", "pause", "ended", "seeked", "stalled", "volumechanged", "emptied"];
+    var eps = ["ep1", "ep2"]
 
-    var events = ["play", "playing", "pause", "ended", "seeked", "stalled", "volumechanged", "emptied"]
-
-    var v = document.getElementById("ep1")
-
-    for (var i = 0; i < events.length; i++) {
-        v.addEventListener(events[i], function () {
-            gtag('event', 'action', {'event_label': events[i] + '.' + v.id, 'event_category': 'playback.' + v.id})
-        }, true);
+    for (var j = 0; j < eps.length; j++) {
+        v = document.getElementById(eps[j]);
+        console.warn("obj "+v.id);
+        for (var i = 0; i < events.length; i++) {
+            console.warn(eps[j] + " thing " + events[i])
+            v.addEventListener(events[i], function () {
+                gtag('event', 'action', {'event_label': events[i] + '.' + v.id, 'event_category': 'playback.' + v.id})
+            }, true);
+        }
     }
-
-    var v = document.getElementById("ep2");
-    for (var i = 0; i < events.length; i++) {
-        v.addEventListener(events[i], function () {
-            console.warn({'event_label': events[i] + '.' + v.id, 'event_category': 'playback.' + v.id});
-            gtag('event', 'action', {'event_label': events[i] + '.' + v.id, 'event_category': 'playback.' + v.id})
-        }, true);
-    }
-
-
 </script>
 
 </html>
