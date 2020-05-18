@@ -86,8 +86,9 @@
         console.warn("obj "+v.id);
         for (var i = 0; i < events.length; i++) {
             console.warn(eps[j] + " thing " + events[i])
+            var estr = events[i] + '.' + v.id
             v.addEventListener(events[i], function () {
-                gtag('event', 'action', {'event_label': events[i] + '.' + v.id, 'event_category': 'playback.' + v.id})
+                gtag('event', 'action', {'event_label': estr, 'event_category': 'playback.' + v.id})
             }, true);
         }
     }
