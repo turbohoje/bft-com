@@ -1,105 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Buring Free Time Podcast</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buring Free Time Podcast</title>
+    <link rel="stylesheet" href="css/style.css">
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42536493-5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42536493-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-42536493-5');
-  //
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
+        gtag('js', new Date());
 
+        gtag('config', 'UA-42536493-5');
+        //
+    </script>
 
 
 </head>
 <body>
-  <div class="pimg1">
+<div class="pimg1">
     <div class="ptext">
       <span class="border">
         Burning Free Time
       </span>
     </div>
-  </div>
+</div>
 
-  <section class="section section-light">
+<section class="section section-light">
     <h2>Just another dumb podcast</h2>
-    <p>We are a married couple based in Denver, CO. We were inspired by boredom during the covid lockdown and thought it would be fun
-    to archive our thoughts, for future laughs, at the expense of our past selves.</p>
-  </section>
+    <p>We are a married couple based in Denver, CO. We were inspired by boredom during the covid lockdown and thought it
+        would be fun
+        to archive our thoughts, for future laughs, at the expense of our past selves.</p>
+</section>
 
-  <div class="pimg2">
+<div class="pimg2">
     <div class="ptext">
       <span class="border trans">
        Yet another podcast 
       </span>
     </div>
-  </div>
+</div>
 
-  <section class="section section-dark">
+<section class="section section-dark">
     <h2>Lets do this</h2>
-    <p>This layout is likely to change frequently as i work out how to make this work.  For now, mash on an episode below.
+    <p>This page is temporary, will patch it up as i have time.
     </p>
-  </section>
+</section>
 
-  <div class="pimg3">
+<div class="pimg3">
     <div class="ptext">
-      <span class="border trans">
-	
-	Episode 1 : 2020-05-15<br><br>
-<audio controls id="ep1" style="width:90%">
-  <source src="mp3/200515_0003S34.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-     
+      <div class="ep">Episode 1 : 2020-05-15<br><br>
+        <audio controls id="ep1" style="width:90%">
+            <source src="mp3/200515_0003S34.mp3" type="audio/mpeg">
+        </audio>
+      </div>
 
-</span>
+      <div class="ep">Episode 2 : 2020-05-17<br><br>
+            <audio controls id="ep1" style="width:90%">
+                <source src="mp3/200517_0004S34.mp3" type="audio/mpeg">
+            </audio>
+      </div>
     </div>
-  </div>
+</div>
 
-  <section class="section section-dark">
+<!--section class="section section-dark">
     <h2>Be Our Guest</h2>
-      <p>You know you don't have much better to do, come on</p><br><br><br><br>
-  </section>
+    <p>You know you don't have much better to do, come on</p><br><br><br><br>
+</section-->
 
 </body>
 
 <script>
 
+    events = ["play", "playing", "pause", "ended", "seeked", "stalled", "volumechanged", "emptied"]
+
     var v = document.getElementById("ep1")
-    v.addEventListener("play", function() {
-        gtag('event', 'action', {'event_label':'play.'+v.id, 'event_category':'playback.'+v.id})
-    }, true);
-    v.addEventListener("playing", function() {
-        gtag('event', 'action', {'event_label':'playing.'+v.id, 'event_category':'playback.'+v.id})
-    }, true);
-    v.addEventListener("pause", function() {
-        gtag('event', 'action', {'event_label':'pause.'+v.id, 'event_category':'playback.'+v.id})
-    }, true);
-    v.addEventListener("ended", function() {
-        gtag('event', 'action', {'event_label':'ended.'+v.id, 'event_category':'playback.'+v.id})
-    }, true);
-    v.addEventListener("seeked", function() {
-        gtag('event', 'action', {'event_label':'seeked.'+v.id, 'event_category':'playback.'+v.id})
-    }, true);
-    v.addEventListener("stalled", function() {
-        gtag('event', 'action', {'event_label':'stalled.'+v.id, 'event_category':'playback.'+v.id})
-    }, true);
-    v.addEventListener("volumechanged", function() {
-        gtag('event', 'action', {'event_label':'volume.'+v.id, 'event_category':'playback.'+v.id})
-    }, true);
-    v.addEventListener("emptied", function() {
-        gtag('event', 'action', {'event_label':'emptied.'+v.id, 'event_category':'playback.'+v.id})
-    }, true);
+
+    for (var i = 0; i < events.length; i++) {
+        v.addEventListener(s, function () {
+            gtag('event', 'action', {'event_label': s + '.' + v.id, 'event_category': 'playback.' + v.id})
+        }, true);
+    }
+
+    var v = document.getElementById("ep2");
+    for (var i = 0; i < events.length; i++) {
+        v.addEventListener(s, function () {
+            gtag('event', 'action', {'event_label': s + '.' + v.id, 'event_category': 'playback.' + v.id})
+        }, true);
+    }
+
+
 </script>
 
 </html>

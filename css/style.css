@@ -68,10 +68,19 @@ body, html {
   opacity: 0.90;
   color: #fff;
   padding: 20px;
+    line-height: 80px;
 }
 
 .ptext .border.trans {
   background: transparent;
+
+    padding-bottom:300px;
+}
+
+.ep {
+    background: transparent;
+    height: 150px;
+    color:white;
 }
 
 @media(max-width: 568px) {
