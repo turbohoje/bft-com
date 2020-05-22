@@ -161,4 +161,9 @@ nav ul li a {
   text-decoration: none;
   color: #616161;
   padding: 10px 0;
+  cursor: pointer;
+}
+
+nav ul li a:active {
+  color: black;
 }

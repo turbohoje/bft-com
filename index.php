@@ -52,33 +52,41 @@
     <div class="etext">
 
 
+	<div class="ep">Episode 2 : 2020-05-17<br><br>
+	<audio controls id="ep2" style="width:90%" preload="none">
+	<source src="podcast/200517_0004S34.mp3" type="audio/mpeg">
+	</audio>
+	</div>
 
-      <div class="ep">Episode 1 : 2020-05-15<br><br>
-        <audio controls id="ep1" style="width:90%" preload="none">
-            <source src="podcast/200515_0003S34.mp3" type="audio/mpeg">
-        </audio>
-      </div>
 
-      <div class="ep">Episode 2 : 2020-05-17<br><br>
-            <audio controls id="ep2" style="width:90%" preload="none">
-                <source src="podcast/200517_0004S34.mp3" type="audio/mpeg">
-            </audio>
-      </div>
+	<div class="ep">Episode 1 : 2020-05-15<br><br>
+	<audio controls id="ep1" style="width:90%" preload="none">
+	<source src="podcast/200515_0003S34.mp3" type="audio/mpeg">
+	</audio>
+	</div>
+
+
 
 
 		<font color="white">x's of playback</font>
 		<nav>
 		<ul>
-			<li><a href="#x" onclick="playspeed(1/2);">1/2</a></li>
-			<li><a href="#x" onclick="playspeed(1);">1</a></li>
-			<li><a href="#x" onclick="playspeed(5/4);">5/4</a></li>
-			<li><a href="#x" onclick="playspeed(3/2);">3/2</a></li>
-			<li><a href="#x" onclick="playspeed(7/4);">7/4</a></li>
-			<li><a href="#x" onclick="playspeed(2);">2</a></li>
-			<li><a href="#x" onclick="playspeed(9/4);">9/4</a></li>
+			<li><a href="#1/2x" onclick="playspeed(1/2);">1/2</a></li>
+			<li><a href="#1x" onclick="playspeed(1);">1</a></li>
+			<li><a href="#5/4x" onclick="playspeed(5/4);">5/4</a></li>
+			<li><a href="#3/2x" onclick="playspeed(3/2);">3/2</a></li>
+			<li><a href="#7/4x" onclick="playspeed(7/4);">7/4</a></li>
+			<li><a href="#2x" onclick="playspeed(2);">2</a></li>
+			<li><a href="#9/4x" onclick="playspeed(9/4);">9/4</a></li>
 		</ul>
 		</nav>
-		<a name="x"></a>
+		<a name="1/2x"></a>
+		<a name="1x"></a>
+		<a name="5/4x"></a>
+		<a name="3/2x"></a>
+		<a name="7/4x"></a>
+		<a name="2x"></a>
+		<a name="9/4x"></a>
     </div>
 </div>
 
@@ -96,12 +104,14 @@
         for (var i=0; i < as.length; i++) {
             as[i].playbackRate = x;
 		}
+        gtag('event', 'action', {'event_label': 'playbackRate', 'event_category': 'rate=' + x})
 	}
 
-    var events = ["play", "playing", "pause", "ended", "seeked", "stalled", "volumechanged", "emptied"];
+    var events = ["play", "playing", "pause", "ended", "seeked", "stalled", "volumechanged", "emptied", "playbackRate"];
     var eps = ["ep1", "ep2"]
 
     var eventFunc = function(id, event){
+        console.warn('firing' + event);
         gtag('event', 'action', {'event_label': event, 'event_category': 'playback.' + id})
     };
 
