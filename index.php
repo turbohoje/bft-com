@@ -57,22 +57,17 @@
 	<source src="podcast/200517_0004S34.mp3" type="audio/mpeg">
 	</audio>
 	</div>
-
-
+		
 	<div class="ep">Episode 1 : 2020-05-15<br><br>
 	<audio controls id="ep1" style="width:90%" preload="none">
 	<source src="podcast/200515_0003S34.mp3" type="audio/mpeg">
 	</audio>
 	</div>
-
-
-
-
 		<font color="white">x's of playback</font>
 		<nav>
 		<ul>
 			<li><a href="#1/2x" onclick="playspeed(1/2);">1/2</a></li>
-			<li><a href="#1x" onclick="playspeed(1);">1</a></li>
+			<li><a href="#1x" onclick="playspeed(1);" class="active"">1</a></li>
 			<li><a href="#5/4x" onclick="playspeed(5/4);">5/4</a></li>
 			<li><a href="#3/2x" onclick="playspeed(3/2);">3/2</a></li>
 			<li><a href="#7/4x" onclick="playspeed(7/4);">7/4</a></li>
@@ -89,13 +84,13 @@
 		<a name="9/4x"></a>
     </div>
 </div>
+</body>
 
 <!--section class="section section-dark">
     <h2>Be Our Guest</h2>
     <p>You know you don't have much better to do, come on</p><br><br><br><br>
 </section-->
 
-</body>
 
 <script language="javascript">
 	function playspeed(x){
@@ -104,6 +99,9 @@
         for (var i=0; i < as.length; i++) {
             as[i].playbackRate = x;
 		}
+
+
+
         gtag('event', 'action', {'event_label': 'playbackRate', 'event_category': 'rate=' + x})
 	}
 

@@ -29,12 +29,12 @@ body, html {
 
 .pimg2 {
   background-image: url('../img/image2.jpg');
-  min-height: 200px;
+  min-height: 300px;
 }
 
 .pimg3 {
   background-image: url('../img/image3.jpg');
-  min-height: 400px;
+  min-height: 390px;
 }
 
 .section {
@@ -133,6 +133,7 @@ nav {
   background: #f0f0f0;
   border: 1px solid #ccc;
   border-right: none;
+
 }
 
 nav ul {
@@ -164,6 +165,7 @@ nav ul li a {
   cursor: pointer;
 }
 
-nav ul li a:active {
+nav ul li a.active {
   color: black;
+  font-weight: bold;
 }
