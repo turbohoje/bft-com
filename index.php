@@ -57,7 +57,7 @@
 	<source src="podcast/200517_0004S34.mp3" type="audio/mpeg">
 	</audio>
 	</div>
-		
+
 	<div class="ep">Episode 1 : 2020-05-15<br><br>
 	<audio controls id="ep1" style="width:90%" preload="none">
 	<source src="podcast/200515_0003S34.mp3" type="audio/mpeg">
@@ -93,6 +93,25 @@
 
 
 <script language="javascript">
+    function set_play_speed_button(){
+        var ns = document.querySelectorAll('nav ul li');
+
+        var url = document.URL;
+        var idx = url.indexOf("#");
+        var anc = idx != -1 ? url.substring(idx+1) : "1x";
+
+        for (var i=0; i < ns.length; i++) {
+            var lurl = document.querySelectorAll('nav ul li')[i].querySelector('a').href;
+            var lidx = lurl.indexOf("#");
+            if(lurl.substring(lidx+1) == anc) {
+                document.querySelectorAll('nav ul li')[i].querySelector('a').classList.add("active");
+            }
+            else{
+                document.querySelectorAll('nav ul li')[i].querySelector('a').classList.remove("active");
+            }
+        }
+    }
+
 	function playspeed(x){
         // $('audio').playbackRate = x;
         var as = document.querySelectorAll('audio');
@@ -100,16 +119,16 @@
             as[i].playbackRate = x;
 		}
 
-
-
         gtag('event', 'action', {'event_label': 'playbackRate', 'event_category': 'rate=' + x})
+        setTimeout(set_play_speed_button, 1);
 	}
+
+
 
     var events = ["play", "playing", "pause", "ended", "seeked", "stalled", "volumechanged", "emptied", "playbackRate"];
     var eps = ["ep1", "ep2"]
 
     var eventFunc = function(id, event){
-        console.warn('firing' + event);
         gtag('event', 'action', {'event_label': event, 'event_category': 'playback.' + id})
     };
 
@@ -120,6 +139,13 @@
             v.addEventListener(events[i], eventFunc.bind(this, v.id, events[i] + '.' + v.id), true);
         }
     }
+
+    //set playspeed if bookmarked
+    var url = document.URL;
+    var idx = url.indexOf("#");
+    var anc = idx != -1 ? url.substring(idx+1) : "1x";
+	var val =  eval(anc.replace("x", ""));
+    playspeed(val);
 </script>
 
 </html>
