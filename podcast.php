@@ -1,10 +1,62 @@
 <?php
 
 $file = $_GET['f'];
+
+if($file == ""){
+    header("content-type: text/plain");
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+
+    $xml = new DOMDocument();
+    $root = $xml->appendChild($xml->createElement('rss'));
+    $root->setAttribute('xmlns:itunes', 'http://www.itunes.com/dtds/podcast-1.0.dtd');
+    $root->setAttribute('xmlns:media', 'http://search.yahoo.com/mrss/');
+    $root->setAttribute('xmlns:feedburner', 'http://rssnamespace.org/feedburner/ext/1.0');
+    $root->setAttribute('version', '2.0');
+
+    $chan = $root->appendChild($xml->createElement('channel'));
+    $chan->appendChild($xml->createElement('title', "Burning Free Time Podcast"));
+    $chan->appendChild($xml->createElement('link', "http://burningfreetime.com"));
+    $chan->appendChild($xml->createElement('generator', 'BFT sloppy code'));
+    $chan->appendChild($xml->createElement('language', "en"));
+
+    foreach (array("podcast/200515_0003S34.mp3","podcast/200515_0003S34.mp3") as $episode) {
+        $item = $chan->appendChild($xml->createElement('item'));
+        $item->appendChild($xml->createElement('title', "title"));
+        $item->appendChild($xml->createElement('link', $episode));
+        $item->appendChild($xml->createElement('itunes:author', "ar"));
+        $item->appendChild($xml->createElement('itunes:summary', "sum"));
+        $item->appendChild($xml->createElement('guid', $episode));
+
+//        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+//        $enclosure = $item->appendChild($xml->createElement('enclosure'));
+//        $enclosure->setAttribute('url', $episode['audio_file']);
+//        $enclosure->setAttribute('length', filesize($episode['audio_file']));
+//        $enclosure->setAttribute('type', finfo_file($finfo, $episode['audio_file']));
+//
+//        $item->appendChild($xml->createElement('pubDate', date('D, d M Y H:i:s O', $episode['created'])));
+//
+//        $getID3 = new getID3();
+//        $fileinfo = $getID3->analyze($episode['audio_file']);
+//        $item->appendChild($xml->createElement('itunes:duration', $fileinfo['playtime_string']));
+    }
+
+    $xml->formatOutput = true;
+
+
+    print $xml->saveXML();
+
+
+    print "done";
+    exit(0);
+}
+
 $filepath = "mp3/$file";
 
 if (!file_exists($filepath)) {
-    print "no file";
+    print "no file '$filepath'";
     exit(1);
 }
 

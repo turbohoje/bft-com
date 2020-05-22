@@ -51,6 +51,8 @@
 <div class="pimg3">
     <div class="etext">
 
+
+
       <div class="ep">Episode 1 : 2020-05-15<br><br>
         <audio controls id="ep1" style="width:90%" preload="none">
             <source src="podcast/200515_0003S34.mp3" type="audio/mpeg">
@@ -62,6 +64,21 @@
                 <source src="podcast/200517_0004S34.mp3" type="audio/mpeg">
             </audio>
       </div>
+
+
+		<font color="white">x's of playback</font>
+		<nav>
+		<ul>
+			<li><a href="#x" onclick="playspeed(1/2);">1/2</a></li>
+			<li><a href="#x" onclick="playspeed(1);">1</a></li>
+			<li><a href="#x" onclick="playspeed(5/4);">5/4</a></li>
+			<li><a href="#x" onclick="playspeed(3/2);">3/2</a></li>
+			<li><a href="#x" onclick="playspeed(7/4);">7/4</a></li>
+			<li><a href="#x" onclick="playspeed(2);">2</a></li>
+			<li><a href="#x" onclick="playspeed(9/4);">9/4</a></li>
+		</ul>
+		</nav>
+		<a name="x"></a>
     </div>
 </div>
 
@@ -73,6 +90,14 @@
 </body>
 
 <script language="javascript">
+	function playspeed(x){
+        // $('audio').playbackRate = x;
+        var as = document.querySelectorAll('audio');
+        for (var i=0; i < as.length; i++) {
+            as[i].playbackRate = x;
+		}
+	}
+
     var events = ["play", "playing", "pause", "ended", "seeked", "stalled", "volumechanged", "emptied"];
     var eps = ["ep1", "ep2"]
 

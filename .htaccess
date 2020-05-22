@@ -1,2 +1,4 @@
 RewriteEngine on
 RewriteRule "^podcast/(.*)$" "podcast.php?f=$1" [PT]
+RewriteRule "^podcast$" "podcast.php?f=" [PT]
+
