@@ -52,14 +52,14 @@
     <div class="etext">
 
       <div class="ep">Episode 1 : 2020-05-15<br><br>
-        <audio controls id="ep1" style="width:90%">
-            <source src="mp3/200515_0003S34.mp3" type="audio/mpeg">
+        <audio controls id="ep1" style="width:90%" preload="none">
+            <source src="podcast/200515_0003S34.mp3" type="audio/mpeg">
         </audio>
       </div>
 
       <div class="ep">Episode 2 : 2020-05-17<br><br>
-            <audio controls id="ep2" style="width:90%">
-                <source src="mp3/200517_0004S34.mp3" type="audio/mpeg">
+            <audio controls id="ep2" style="width:90%" preload="none">
+                <source src="podcast/200517_0004S34.mp3" type="audio/mpeg">
             </audio>
       </div>
     </div>
