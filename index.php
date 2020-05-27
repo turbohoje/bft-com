@@ -51,6 +51,12 @@
 <div class="pimg3">
     <div class="etext">
 
+	<div class="ep">Episode 3 : 2020-05-25<br><br>
+		<audio controls id="ep2" style="width:90%" preload="none">
+			<source src="podcast/200525_0006S34.mp3" type="audio/mpeg">
+		</audio>
+	</div>
+
 
 	<div class="ep">Episode 2 : 2020-05-17<br><br>
 	<audio controls id="ep2" style="width:90%" preload="none">
