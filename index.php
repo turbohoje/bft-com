@@ -132,7 +132,7 @@
 
 
     var events = ["play", "playing", "pause", "ended", "seeked", "stalled", "volumechanged", "emptied", "playbackRate"];
-    var eps = ["ep1", "ep2"]
+    var eps = ["ep1", "ep2", "ep3"]
 
     var eventFunc = function(id, event){
         gtag('event', 'action', {'event_label': event, 'event_category': 'playback.' + id})
